@@ -1,0 +1,101 @@
+{
+  "clients": [
+    {
+      "id": "c1",
+      "name": "Анна Смирнова",
+      "phone": "+79990000001",
+      "email": "anna@example.com",
+      "notes": "Предпочитает утренние слоты",
+      "createdAt": "2026-03-01T10:00:00.000Z"
+    },
+    {
+      "id": "c2",
+      "name": "Мария Иванова",
+      "phone": "+79990000002",
+      "email": "maria@example.com",
+      "notes": "",
+      "createdAt": "2026-03-02T12:00:00.000Z"
+    },
+    {
+      "id": "c3",
+      "name": "Екатерина Петрова",
+      "phone": "+79990000003",
+      "email": "katya@example.com",
+      "notes": "Аллергия на некоторые средства",
+      "createdAt": "2026-03-03T15:30:00.000Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "s1",
+      "title": "Маникюр",
+      "durationMin": 90,
+      "price": 2500
+    },
+    {
+      "id": "s2",
+      "title": "Педикюр",
+      "durationMin": 120,
+      "price": 3200
+    },
+    {
+      "id": "s3",
+      "title": "Маникюр + покрытие",
+      "durationMin": 120,
+      "price": 3400
+    }
+  ],
+  "employees": [
+    {
+      "id": "e1",
+      "name": "Елена",
+      "role": "master"
+    },
+    {
+      "id": "e2",
+      "name": "Ольга",
+      "role": "master"
+    },
+    {
+      "id": "e3",
+      "name": "Анастасия",
+      "role": "admin"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "clientId": "c1",
+      "serviceId": "s1",
+      "employeeId": "e1",
+      "startAt": "2026-03-10T09:00:00.000Z",
+      "endAt": "2026-03-10T10:30:00.000Z",
+      "price": 2500,
+      "status": "scheduled",
+      "createdAt": "2026-03-08T12:00:00.000Z"
+    },
+    {
+      "id": "a2",
+      "clientId": "c2",
+      "serviceId": "s2",
+      "employeeId": "e2",
+      "startAt": "2026-03-10T11:00:00.000Z",
+      "endAt": "2026-03-10T13:00:00.000Z",
+      "price": 3200,
+      "status": "completed",
+      "createdAt": "2026-03-08T13:00:00.000Z"
+    },
+    {
+      "id": "a3",
+      "clientId": "c3",
+      "serviceId": "s3",
+      "employeeId": "e1",
+      "startAt": "2026-03-11T14:00:00.000Z",
+      "endAt": "2026-03-11T16:00:00.000Z",
+      "price": 3400,
+      "status": "cancelled",
+      "cancelReason": "Клиент отменил запись",
+      "createdAt": "2026-03-08T14:00:00.000Z"
+    }
+  ]
+}

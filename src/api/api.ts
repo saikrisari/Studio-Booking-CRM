@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Client, ClientsFilters } from "@/entities/client/types";
+import { Client } from "@/entities/client/types";
 import { Appointment, AppointmentsFilters } from "@/entities/appointment/types";
 import { Employee } from "@/entities/employee/types";
 import { Service } from "@/entities/service/types";
@@ -8,17 +8,25 @@ import { DashboardStats } from "@/entities/dashboard/types";
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api",
+    baseUrl: "http://localhost:4000",
   }),
+  tagTypes: [
+    "Clients",
+    "Appointments",
+    "Services",
+    "Employees",
+    "DashboardStats",
+  ],
   endpoints: (builder) => ({
-    getClients: builder.query<Client[], ClientsFilters>({
-      query: (filters = {}) => ({
+    getClients: builder.query<Client[], void>({
+      query: () => ({
         url: "/clients",
-        params: filters,
       }),
+      providesTags: ["Clients"],
     }),
     getClientById: builder.query<Client, string>({
       query: (id) => `/clients/${id}`,
+      providesTags: (result, error, id) => [{ type: "Clients", id }],
     }),
     createClient: builder.mutation<Client, Omit<Client, "id" | "createdAt">>({
       query: (client) => ({
@@ -26,6 +34,7 @@ export const api = createApi({
         method: "POST",
         body: client,
       }),
+      invalidatesTags: ["Clients"],
     }),
     updateClient: builder.mutation<Client, { id: string } & Partial<Client>>({
       query: ({ id, ...patch }) => ({
@@ -33,15 +42,18 @@ export const api = createApi({
         method: "PATCH",
         body: patch,
       }),
+      invalidatesTags: ["Clients"],
     }),
     getAppointments: builder.query<Appointment[], AppointmentsFilters>({
       query: (filters = {}) => ({
         url: "/appointments",
         params: filters,
       }),
+      providesTags: ["Appointments"],
     }),
     getAppointmentById: builder.query<Appointment, string>({
       query: (id) => `/appointments/${id}`,
+      providesTags: (result, error, id) => [{ type: "Appointments", id }],
     }),
     createAppointment: builder.mutation<
       Appointment,
@@ -52,6 +64,7 @@ export const api = createApi({
         method: "POST",
         body: appointment,
       }),
+      invalidatesTags: ["Appointments"],
     }),
     updateAppointment: builder.mutation<
       Appointment,
@@ -62,18 +75,22 @@ export const api = createApi({
         method: "PATCH",
         body: patch,
       }),
+      invalidatesTags: ["Appointments"],
     }),
     cancelAppointment: builder.mutation<void, string>({
       query: (id) => ({
         url: `/appointments/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Appointments"],
     }),
     getServices: builder.query<Service[], void>({
       query: () => "/services",
+      providesTags: ["Services"],
     }),
     getServiceById: builder.query<Service, string>({
       query: (id) => `/services/${id}`,
+      providesTags: (result, error, id) => [{ type: "Services", id }],
     }),
     createService: builder.mutation<Service, Omit<Service, "id">>({
       query: (service) => ({
@@ -81,6 +98,7 @@ export const api = createApi({
         method: "POST",
         body: service,
       }),
+      invalidatesTags: ["Services"],
     }),
     updateService: builder.mutation<Service, { id: string } & Partial<Service>>(
       {
@@ -89,6 +107,7 @@ export const api = createApi({
           method: "PATCH",
           body: patch,
         }),
+        invalidatesTags: ["Services"],
       },
     ),
     deleteService: builder.mutation<void, string>({
@@ -96,15 +115,19 @@ export const api = createApi({
         url: `/services/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Services"],
     }),
     getEmployees: builder.query<Employee[], void>({
       query: () => "/employees",
+      providesTags: ["Employees"],
     }),
     getEmployeeById: builder.query<Employee, string>({
       query: (id) => `/employees/${id}`,
+      providesTags: (result, error, id) => [{ type: "Employees", id }],
     }),
     getDashboardStats: builder.query<DashboardStats, void>({
       query: () => "/dashboard/stats",
+      providesTags: ["DashboardStats"],
     }),
   }),
 });

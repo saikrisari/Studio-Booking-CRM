@@ -1,3 +1,5 @@
+import { StoreProvider } from "@/app/providers/StoreProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -6,7 +8,7 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

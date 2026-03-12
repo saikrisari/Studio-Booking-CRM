@@ -6,7 +6,3 @@ export type Client = {
   notes?: string;
   createdAt: string;
 };
-
-export type ClientsFilters = {
-  search?: string
-}

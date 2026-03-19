@@ -2,6 +2,8 @@
 import { useGetClientsQuery } from "@/api/api";
 import { useEffect, useState } from "react";
 
+// filters on search??
+
 export default function ClientSearch() {
   const [searchInputValue, setSearchInputValue] = useState("");
   const [debouncedInputValue, setDebouncedInputValue] = useState("");

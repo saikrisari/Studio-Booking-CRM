@@ -1,6 +1,10 @@
+import AppointmentsList from "@/components/AppointmentsList";
+
 export default function AppointmentsPage() {
   return <main>
     Appointments
+
+    <AppointmentsList />
 
     {/* filters from FEATURES */}
     {/* <table>

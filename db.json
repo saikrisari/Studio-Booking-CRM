@@ -23,41 +23,6 @@
       "email": "katya@example.com",
       "notes": "Аллергия на некоторые средства",
       "createdAt": "2026-03-03T15:30:00.000Z"
-    },
-    {
-      "id": "0a94",
-      "name": "name",
-      "phone": "phone",
-      "email": "example@mail.ru",
-      "notes": ""
-    },
-    {
-      "id": "9f5f",
-      "name": "name1",
-      "phone": "phone1",
-      "email": "example2@mail.ru",
-      "notes": ""
-    },
-    {
-      "id": "dbca",
-      "name": "name1",
-      "phone": "phone1",
-      "email": "example2@mail.ru",
-      "notes": ""
-    },
-    {
-      "id": "61c6",
-      "name": "name2",
-      "phone": "343",
-      "email": "example@mail.ru",
-      "notes": "ewrsd"
-    },
-    {
-      "id": "55e5",
-      "name": "aaa",
-      "phone": "798",
-      "email": "example@mail.ru",
-      "notes": ""
     }
   ],
   "services": [

@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Client } from "@/entities/client/types";
-import { Appointment, AppointmentsFilters } from "@/entities/appointment/types";
-import { Employee } from "@/entities/employee/types";
-import { Service } from "@/entities/service/types";
-import { DashboardStats } from "@/entities/dashboard/types";
+import { Client } from "@/models/client/types";
+import { Appointment, AppointmentsFilters } from "@/models/appointment/types";
+import { Employee } from "@/models/employee/types";
+import { Service } from "@/models/service/types";
+import { DashboardStats } from "@/models/dashboard/types";
 
 export const api = createApi({
   reducerPath: "api",

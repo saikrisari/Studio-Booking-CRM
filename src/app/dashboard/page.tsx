@@ -8,7 +8,7 @@ export default function DashboardPage() {
 <p>bookings week</p>
 <p>popular services</p>
 <p>recent appointments</p>
-{/* dashboard stats from WIDGETS */}
+{/* dashboard stats from WIDGETS a smisl kakoy eto func */}
 
   </main>;
 }
